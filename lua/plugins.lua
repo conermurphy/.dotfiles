@@ -14,20 +14,24 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons',
     },
-  }
+    config = function()
+      local function on_attach()
+	vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
+      end
 
-  local function on_attach()
-    vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
-  end
-
-  require('nvim-tree').setup {
-    on_attach = on_attach,
-    open_on_setup = true,
+      require('nvim-tree').setup {
+	on_attach = on_attach,
+	open_on_setup = true,
+      }
+    end
   }
 
   -- Leap
-  use 'ggandor/leap.nvim'
-
-  require('leap').add_default_mappings()
+  use {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  }
 end)
 
