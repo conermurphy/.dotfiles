@@ -1,6 +1,11 @@
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- Aesthetics
+
+  -- Night Owl
+  use 'haishanh/night-owl.vim'
+
   -- File Exploration
 
   -- NvimTree
@@ -25,3 +30,4 @@ return require('packer').startup(function(use)
 
   require('leap').add_default_mappings()
 end)
+
