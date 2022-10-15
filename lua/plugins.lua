@@ -20,4 +20,8 @@ return require('packer').startup(function(use)
     open_on_setup = true,
   }
 
+  -- Leap
+  use 'ggandor/leap.nvim'
+
+  require('leap').add_default_mappings()
 end)
