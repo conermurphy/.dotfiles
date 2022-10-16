@@ -45,5 +45,22 @@ return require('packer').startup(function(use)
     tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  -- Comment
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+
+  -- Floaterm
+  use {
+    'voldikss/vim-floaterm',
+    config = function()
+      vim.g.floaterm_height = 0.9
+      vim.g.floaterm_width = 0.9
+    end
+  }
 end)
 

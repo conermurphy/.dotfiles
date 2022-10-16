@@ -9,6 +9,8 @@ function M.setup()
 
   local mappings = {
     e = { ':NvimTreeToggle<CR>', 'Toggle Explorer' },
+    ['/'] = { '<Plug>--[[ (comment_toggle_linewise_current) ]]', 'Toggle comment' },
+    g = { ':FloatermNew --disposable lazygit<CR>', 'Git' },
     f = {
       name = 'find',
       f = { '<cmd>Telescope find_files<CR>', 'Find file' },
@@ -17,8 +19,19 @@ function M.setup()
     },
   }
 
+  local v_opts = {
+    prefix = '<leader>',
+    mode = 'v',
+  }
+
+  local v_mappings = {
+    ['/'] = { '<Plug>(comment_toggle_linewise_visual)', 'Toggle comment' }
+  }
+
   wk.setup()
+
   wk.register(mappings, opts)
+  wk.register(v_mappings, v_opts)
 end
 
 return M
