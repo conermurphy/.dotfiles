@@ -13,3 +13,5 @@ o.shiftwidth = 2
 wo.number = true
 wo.relativenumber = true
 
+opt.timeoutlen = 500
+

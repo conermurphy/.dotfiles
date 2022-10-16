@@ -1,12 +1,8 @@
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- Aesthetics
-
   -- Night Owl
   use 'haishanh/night-owl.vim'
-
-  -- File Exploration
 
   -- NvimTree
   use {
@@ -15,12 +11,7 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons',
     },
     config = function()
-      local function on_attach()
-	vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
-      end
-
       require('nvim-tree').setup {
-	on_attach = on_attach,
 	open_on_setup = true,
       }
     end
@@ -32,6 +23,27 @@ return require('packer').startup(function(use)
     config = function()
       require('leap').add_default_mappings()
     end
+  }
+
+  -- WhichKey
+  use {
+    'folke/which-key.nvim',
+    config = function()
+      require('config.which-key').setup()
+    end
+  }
+
+  -- Nvim Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
+  -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
 end)
 
