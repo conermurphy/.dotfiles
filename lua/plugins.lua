@@ -62,5 +62,10 @@ return require('packer').startup(function(use)
       vim.g.floaterm_width = 0.9
     end
   }
+
+  -- LSPConfig
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'neovim/nvim-lspconfig'
 end)
 
