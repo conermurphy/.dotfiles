@@ -18,7 +18,7 @@ function M.setup()
   }
 
   local mappings = {
-    e = { ':NvimTreeToggle<CR>', 'Toggle Explorer' },
+    e = { ':Telescope file_browser<CR>', 'Toggle Explorer' },
     ['/'] = { '<Plug>--[[ (comment_toggle_linewise_current) ]]', 'Toggle comment' },
     g = {
       g = { ':FloatermNew --disposable lazygit<CR>', 'LazyGit' },

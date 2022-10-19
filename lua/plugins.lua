@@ -4,19 +4,6 @@ return require('packer').startup(function(use)
   -- Night Owl
   use 'haishanh/night-owl.vim'
 
-  -- NvimTree
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      require('nvim-tree').setup {
-	open_on_setup = true,
-      }
-    end
-  }
-
   -- Leap
   use {
     'ggandor/leap.nvim',
@@ -39,11 +26,18 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
+  -- Web DevIcons
+  use 'nvim-tree/nvim-web-devicons'
+
   -- Telescope
+  use 'nvim-telescope/telescope-file-browser.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = function()
+      require('config.telescope').setup()
+    end
   }
 
   -- Comment
