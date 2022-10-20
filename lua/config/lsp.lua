@@ -1,5 +1,6 @@
 require('mason').setup()
 require('mason-lspconfig').setup()
+
 local lsp = require('lspconfig')
 
 function on_attach(client, bufnr)
@@ -22,7 +23,9 @@ function on_attach(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, create_opts('References'))
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 lsp.tsserver.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
