@@ -63,7 +63,12 @@ return require('packer').startup(function(use)
   -- LSPConfig
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
+  use { 
+		'neovim/nvim-lspconfig',
+		config = function()
+			require('config.lsp').setup()
+		end
+	}
 
   -- LuaSnip
   use 'L3MON4D3/LuaSnip'
