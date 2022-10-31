@@ -24,6 +24,7 @@ function on_attach(client, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 lsp.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -35,3 +36,7 @@ lsp.elixirls.setup {
   capabilities = capabilities,
 }
 
+lsp.sumneko_lua.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
