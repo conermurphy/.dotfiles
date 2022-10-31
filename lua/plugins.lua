@@ -23,7 +23,10 @@ return require('packer').startup(function(use)
   -- Nvim Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    config = function()
+      require('config.treesitter').setup()
+    end
   }
 
   -- Web DevIcons

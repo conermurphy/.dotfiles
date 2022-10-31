@@ -29,3 +29,9 @@ lsp.tsserver.setup {
   capabilities = capabilities,
 }
 
+lsp.elixirls.setup {
+  cmd = { "elixir-ls" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
