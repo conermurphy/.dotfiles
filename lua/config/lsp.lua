@@ -22,8 +22,6 @@ function M.setup()
 			}
 		end
 
-		local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
 		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, create_opts('Go to definition'))
 		vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, create_opts('Go to declaration'))
 		vim.keymap.set('n', 'gh', vim.lsp.buf.hover, create_opts('Hover Definition'))
