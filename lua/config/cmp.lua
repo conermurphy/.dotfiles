@@ -9,6 +9,9 @@ function M.setup()
 	require('luasnip').lsp_expand(args.body)
       end,
     },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-Space>'] = cmp.mapping.complete(),
+    }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
