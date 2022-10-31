@@ -9,6 +9,10 @@ function M.setup()
 	function on_attach(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+		vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+			border = 'single',
+		})
+
 		function create_opts(description)
 			return {
 				noremap = true,
