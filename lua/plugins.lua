@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
   -- LSPConfig
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
-  use { 
+  use {
 		'neovim/nvim-lspconfig',
 		config = function()
 			require('config.lsp').setup()
@@ -85,5 +85,12 @@ return require('packer').startup(function(use)
       require('config.cmp').setup()
     end
   }
+
+	use {
+		'windwp/nvim-autopairs',
+		config = function()
+			require('nvim-autopairs').setup {}
+		end
+	}
 end)
 
