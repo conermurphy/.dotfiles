@@ -1,17 +1,26 @@
-local o = vim.o
 local g = vim.g
-local wo = vim.wo
-local opt = vim.opt
 
 vim.cmd([[colorscheme night-owl]])
 
 g.mapleader = ' '
 
-o.termguicolors = true
-o.syntax = 'on'
-o.shiftwidth = 2
-wo.number = true
-wo.relativenumber = true
+local options = {
+  backup = false, -- Creates a backup file
+  ignorecase = true, -- Ignore casing in search patterns
+  splitbelow = true, -- Force all vertical splits to appear beneath current window
+  splitright = true, -- Force all horizontal splits to appear right of current window
+  termguicolors = true,
+  syntax = 'on',
+  shiftwidth = 2,
+  tabstop = 2,
+  cursorline = true,
+  smartindent = true,
+  number = true,
+  relativenumber = true,
+  timeoutlen = 500,
+}
 
-opt.timeoutlen = 500
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
 
