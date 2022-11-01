@@ -8,7 +8,7 @@ function M.setup()
       marks = false,
       registers = false,
       presets = {
-	g = false, 
+				g = false,
       },
     },
   }
@@ -27,6 +27,7 @@ function M.setup()
       g = { '<cmd>Telescope live_grep<CR>', 'Find text' },
       r = { '<cmd>Telescope oldfiles<CR>', 'Find recent' },
     },
+		p = { ':lua vim.lsp.buf.format({ async = true })<CR>', 'Prettify' },
   }
 
   local v_opts = {

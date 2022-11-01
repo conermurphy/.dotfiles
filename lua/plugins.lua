@@ -71,6 +71,14 @@ return require('packer').startup(function(use)
 		end
 	}
 
+	-- null-ls
+	use {
+		'jose-elias-alvarez/null-ls.nvim',
+		config = function()
+			require('config.null-ls').setup()
+		end
+	}
+
   -- LuaSnip
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
