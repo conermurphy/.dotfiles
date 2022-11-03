@@ -19,7 +19,7 @@ function M.setup()
 
 	local mappings = {
 		e = { ":Telescope file_browser<CR>", "Toggle Explorer" },
-		["/"] = { "<Plug>--[[ (comment_toggle_linewise_current) ]]", "Toggle comment" },
+		["/"] = { "<Plug>(comment_toggle_linewise_current)", "Toggle comment" },
 		g = { ":FloatermNew --disposable lazygit<CR>", "LazyGit" },
 		f = {
 			name = "find",
