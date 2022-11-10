@@ -45,6 +45,16 @@ function M.setup()
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
+
+	lsp.sumneko_lua.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+
+	lsp.astro.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 end
 
 return M
