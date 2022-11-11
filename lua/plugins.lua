@@ -34,7 +34,6 @@ return require("packer").startup(function(use)
 
 	-- Telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("nvim-telescope/telescope-file-browser.nvim")
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
@@ -43,6 +42,9 @@ return require("packer").startup(function(use)
 			require("config.telescope").setup()
 		end,
 	})
+
+  -- Dirbuf
+  use "elihunter173/dirbuf.nvim"
 
 	-- Comment
 	use({
