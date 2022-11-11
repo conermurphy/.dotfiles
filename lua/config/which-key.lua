@@ -26,6 +26,7 @@ function M.setup()
 			f = { "<cmd>Telescope find_files<CR>", "Find file" },
 			g = { "<cmd>Telescope live_grep<CR>", "Find text" },
 			r = { "<cmd>Telescope oldfiles<CR>", "Find recent" },
+			p = { ":Dirbuf vim.fn.getcwd()<CR>", "Find in project" },
 		},
 		b = {
 			name = "buffers",
