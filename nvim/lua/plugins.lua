@@ -18,6 +18,15 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Lualine
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("config.lualine").setup()
+		end,
+	})
+
 	-- WhichKey
 	use({
 		"folke/which-key.nvim",
