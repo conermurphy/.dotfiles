@@ -8,6 +8,7 @@ function M.setup()
 			nls.builtins.formatting.stylua,
 			nls.builtins.formatting.prettierd,
 		},
+		on_attach = require("lsp-format").on_attach,
 	})
 end
 

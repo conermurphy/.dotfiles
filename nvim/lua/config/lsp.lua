@@ -6,14 +6,14 @@ local M = {}
 function M.setup()
 	local lsp = require("lspconfig")
 
-	function on_attach(client, bufnr)
+	local function on_attach(client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = "single",
 		})
 
-		function create_opts(description)
+		local function create_opts(description)
 			return {
 				noremap = true,
 				silent = true,
@@ -37,11 +37,6 @@ function M.setup()
 
 	lsp.elixirls.setup({
 		cmd = { "elixir-ls" },
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-
-	lsp.sumneko_lua.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})

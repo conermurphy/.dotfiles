@@ -6,7 +6,7 @@ return require("packer").startup(function(use)
 
   -- Leap
   use({
-    "ggandor/leap.nvim",
+    'ggandor/leap.nvim',
     config = function()
       require("leap").add_default_mappings()
     end,
@@ -84,6 +84,12 @@ return require("packer").startup(function(use)
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
       require("config.lsp_lines").setup()
+    end,
+  })
+  use({
+    "lukas-reineke/lsp-format.nvim",
+    config = function()
+      require("lsp-format").setup()
     end,
   })
 
