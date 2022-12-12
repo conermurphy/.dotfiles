@@ -1,5 +1,33 @@
 local M = {}
 
+local cmp_kinds = {
+	Text = "  ",
+	Method = "  ",
+	Function = "  ",
+	Constructor = "  ",
+	Field = "  ",
+	Variable = "  ",
+	Class = "  ",
+	Interface = "  ",
+	Module = "  ",
+	Property = "  ",
+	Unit = "  ",
+	Value = "  ",
+	Enum = "  ",
+	Keyword = "  ",
+	Snippet = "  ",
+	Color = "  ",
+	File = "  ",
+	Reference = "  ",
+	Folder = "  ",
+	EnumMember = "  ",
+	Constant = "  ",
+	Struct = "  ",
+	Event = "  ",
+	Operator = "  ",
+	TypeParameter = "  ",
+}
+
 function M.setup()
 	local cmp = require("cmp")
 	local ls = require("luasnip")
@@ -45,6 +73,21 @@ function M.setup()
 		}, {
 			{ name = "buffer" },
 		}),
+		formatting = {
+			fields = { "kind", "abbr" },
+			format = function(_, vim_item)
+				vim_item.kind = cmp_kinds[vim_item.kind] or ""
+				return vim_item
+			end,
+		},
+		window = {
+			completion = {
+				border = "single",
+			},
+			documentation = {
+				border = "single",
+			},
+		},
 	})
 
 	cmp.setup.cmdline({ "/", "?" }, {
