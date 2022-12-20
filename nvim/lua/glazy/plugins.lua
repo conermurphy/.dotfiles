@@ -5,46 +5,24 @@ return require("packer").startup(function(use)
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
-		config = function()
-			require("glazy.plugins.catppuccin")
-		end,
 	})
 
-	-- Leap
-	use({
-		"ggandor/leap.nvim",
-		config = function()
-			require("leap").add_default_mappings()
-		end,
-	})
+	use("ggandor/leap.nvim")
 
-	-- Lualine
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("glazy.plugins.lualine").setup()
-		end,
 	})
 
 	-- WhichKey
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			require("glazy.plugins.which-key").setup()
-		end,
-	})
+	use("folke/which-key.nvim")
 
 	-- Nvim Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-		config = function()
-			require("glazy.plugins.treesitter").setup()
-		end,
 	})
 
-	-- Web DevIcons
 	use("nvim-tree/nvim-web-devicons")
 
 	-- Telescope
@@ -53,68 +31,21 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
-		config = function()
-			require("glazy.plugins.telescope").setup()
-		end,
 	})
 
-	-- Dirbuf
 	use("elihunter173/dirbuf.nvim")
-
-	-- Comment
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	})
-
-	-- Floaterm
-	use({
-		"voldikss/vim-floaterm",
-		config = function()
-			vim.g.floaterm_height = 0.9
-			vim.g.floaterm_width = 0.9
-		end,
-	})
-
-	-- GitSigns
-	use({
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
-	})
+	use("numToStr/Comment.nvim")
+	use("voldikss/vim-floaterm")
+	use("lewis6991/gitsigns.nvim")
 
 	-- LSPConfig
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
-	use({
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("glazy.plugins.lsp").setup()
-		end,
-	})
-	use({
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("glazy.plugins.lsp_lines").setup()
-		end,
-	})
-	use({
-		"lukas-reineke/lsp-format.nvim",
-		config = function()
-			require("lsp-format").setup()
-		end,
-	})
+	use("neovim/nvim-lspconfig")
+	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+	use("lukas-reineke/lsp-format.nvim")
 
-	-- null-ls
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("glazy.plugins.null-ls").setup()
-		end,
-	})
+	use("jose-elias-alvarez/null-ls.nvim")
 
 	-- LuaSnip
 	use("L3MON4D3/LuaSnip")
@@ -125,25 +56,9 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use({
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require("glazy.plugins.cmp").setup()
-		end,
-	})
+	use("hrsh7th/nvim-cmp")
 
 	-- Utils
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
-
-	use({
-		"kylechui/nvim-surround",
-		config = function()
-			require("nvim-surround").setup({})
-		end,
-	})
+	use("windwp/nvim-autopairs")
+	use("kylechui/nvim-surround")
 end)
