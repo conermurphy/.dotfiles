@@ -15,6 +15,10 @@ Symlink: `ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf`
 1. Install [TPM](https://github.com/tmux-plugins/tpm)
 2. Install plugins with `<Prefix> + I`
 
+## Kitty
+
+Symlink: `ln -s ~/.dotfiles/kitty ~/config/kitty`
+
 ## Neovim
 
 Symlink: `ln -s ~/.dotfiles/nvim/ ~/.config/nvim/`
@@ -30,4 +34,3 @@ brew install neovim ripgrep fd lazygit
 ```vimscript
 :PackerInstall
 ```
-
