@@ -5,10 +5,11 @@ vim.cmd([[colorscheme catppuccin-mocha]])
 g.mapleader = " "
 
 local options = {
-	backup = false, -- Creates a backup file
-	ignorecase = true, -- Ignore casing in search patterns
-	splitbelow = true, -- Force all vertical splits to appear beneath current window
-	splitright = true, -- Force all horizontal splits to appear right of current window
+	backup = false,
+	swapfile = false,
+	ignorecase = true,
+	splitbelow = true,
+	splitright = true,
 	termguicolors = true,
 	syntax = "on",
 	shiftwidth = 2,
