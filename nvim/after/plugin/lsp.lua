@@ -21,7 +21,7 @@ local function on_attach(client, bufnr)
 
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, create_opts("Go to definition"))
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, create_opts("Go to declaration"))
-	vim.keymap.set("n", "gh", vim.lsp.buf.hover, create_opts("Hover Definition"))
+	vim.keymap.set("n", "gh", vim.lsp.buf.hover, create_opts("Hover definition"))
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, create_opts("References"))
 end
 
