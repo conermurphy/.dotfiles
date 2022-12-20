@@ -1,5 +1,3 @@
--- Global setup
-require('plugins')
-require('settings')
-require('keymaps')
-
+require("glazy.plugins")
+require("glazy.settings")
+require("glazy.keymaps")

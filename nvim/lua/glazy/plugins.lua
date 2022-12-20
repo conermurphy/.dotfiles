@@ -6,7 +6,7 @@ return require("packer").startup(function(use)
 		"catppuccin/nvim",
 		as = "catppuccin",
 		config = function()
-			require("config.catppuccin")
+			require("glazy.plugins.catppuccin")
 		end,
 	})
 
@@ -23,7 +23,7 @@ return require("packer").startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			require("config.lualine").setup()
+			require("glazy.plugins.lualine").setup()
 		end,
 	})
 
@@ -31,7 +31,7 @@ return require("packer").startup(function(use)
 	use({
 		"folke/which-key.nvim",
 		config = function()
-			require("config.which-key").setup()
+			require("glazy.plugins.which-key").setup()
 		end,
 	})
 
@@ -40,7 +40,7 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = function()
-			require("config.treesitter").setup()
+			require("glazy.plugins.treesitter").setup()
 		end,
 	})
 
@@ -54,7 +54,7 @@ return require("packer").startup(function(use)
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
 		config = function()
-			require("config.telescope").setup()
+			require("glazy.plugins.telescope").setup()
 		end,
 	})
 
@@ -92,13 +92,13 @@ return require("packer").startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("config.lsp").setup()
+			require("glazy.plugins.lsp").setup()
 		end,
 	})
 	use({
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function()
-			require("config.lsp_lines").setup()
+			require("glazy.plugins.lsp_lines").setup()
 		end,
 	})
 	use({
@@ -112,7 +112,7 @@ return require("packer").startup(function(use)
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
-			require("config.null-ls").setup()
+			require("glazy.plugins.null-ls").setup()
 		end,
 	})
 
@@ -128,7 +128,7 @@ return require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		config = function()
-			require("config.cmp").setup()
+			require("glazy.plugins.cmp").setup()
 		end,
 	})
 
