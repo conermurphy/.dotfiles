@@ -47,3 +47,9 @@ lsp.astro.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
+vim.diagnostic.config({
+	virtual_text = false,
+})
+
+vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")

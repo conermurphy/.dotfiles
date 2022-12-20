@@ -20,6 +20,7 @@ local options = {
 	number = true,
 	relativenumber = true,
 	timeoutlen = 500,
+	updatetime = 300,
 	clipboard = "unnamedplus",
 }
 
