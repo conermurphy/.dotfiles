@@ -42,7 +42,6 @@ return require("packer").startup(function(use)
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
-	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 	use("lukas-reineke/lsp-format.nvim")
 
 	use("jose-elias-alvarez/null-ls.nvim")
