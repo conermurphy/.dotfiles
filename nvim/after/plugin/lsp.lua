@@ -23,6 +23,8 @@ local function on_attach(client, bufnr)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, create_opts("Go to declaration"))
 	vim.keymap.set("n", "gh", vim.lsp.buf.hover, create_opts("Hover definition"))
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, create_opts("References"))
+
+	require("lsp-format").on_attach(client, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -48,8 +50,11 @@ lsp.astro.setup({
 	capabilities = capabilities,
 })
 
+lsp.prismals.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 vim.diagnostic.config({
 	virtual_text = false,
 })
-
-vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float({ border = 'single' })")
