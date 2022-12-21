@@ -22,6 +22,7 @@ local mappings = {
 		f = { "<cmd>Telescope buffers<CR>", "Find" },
 	},
 	p = { "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Prettify" },
+	d = { "<cmd>lua vim.diagnostic.open_float({ border = 'single' })<CR>", "Diagnostic"},
 }
 
 wk.setup(config)
