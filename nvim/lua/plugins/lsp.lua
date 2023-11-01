@@ -115,20 +115,23 @@ return {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    "stevearc/conform.nvim",
     config = function()
-      local null_ls = require("null-ls")
+      local conform = require("conform")
 
-      null_ls.setup({
-        sources = {
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.prettierd,
+      conform.setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          javascript = { "prettierd" },
+          javascriptreact = { "prettierd" },
+          typescript = { "prettierd" },
+          typescriptreact = { "prettierd" }
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
         },
       })
     end,
-    keys = {
-      { "<leader>p", function()  end, desc = "prettify" }
-    }
   }
 }
