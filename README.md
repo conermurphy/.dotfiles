@@ -17,7 +17,7 @@ Symlink: `ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf`
 
 ## Kitty
 
-Symlink: `ln -s ~/.dotfiles/kitty ~/config/kitty`
+Symlink: `ln -s ~/.dotfiles/kitty ~/.config/kitty`
 
 ## Neovim
 
