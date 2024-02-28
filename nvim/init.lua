@@ -1,3 +1,4 @@
-require("glazy.options")
-require("glazy.keymaps")
-require("glazy.plugins")
+require('glazy.options')
+require('glazy.keymaps')
+require('glazy.plugins')
+
