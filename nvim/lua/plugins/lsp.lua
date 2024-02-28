@@ -1,142 +1,88 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		build = ":MasonUpdate",
-	},
-	"williamboman/mason-lspconfig.nvim",
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"saadparwaiz1/cmp_luasnip",
-			"L3MON4D3/LuaSnip",
-		},
-		config = function()
-			local cmp = require("cmp")
+  'neovim/nvim-lspconfig',
+  dependencies = {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    { 'j-hui/fidget.nvim', opts = {} },
+  },
+  config = function()
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('UserLspConfig', { clear = true }),
+      callback = function(event)
+        local fzf = require('fzf-lua')
+        local map = function(keys, func, desc)
+          vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+        end
 
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-u>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-				}),
-			}, {
-				{ name = "buffer" },
-			})
+        -- Jump to the definition of the word under your cursor.
+        --  This is where a variable was first declared, or where a function is defined, etc.
+        --  To jump back, press <C-T>.
+        map('gd', fzf.lsp_definitions, '[G]oto [D]efinition')
 
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			})
+        -- Find references for the word under your cursor.
+        map('gr', fzf.lsp_references, '[G]oto [R]eferences')
 
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{ name = "cmdline" },
-				}),
-			})
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("mason").setup()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"tsserver",
-				},
-			})
+        -- Jump to the implementation of the word under your cursor.
+        --  Useful when your language has ways of declaring types without an actual implementation.
+        map('gI', fzf.lsp_implementations, '[G]oto [I]mplementation')
 
-			local lspc = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        -- Jump to the type of the word under your cursor.
+        --  Useful when you're not sure what type a variable is and you want to see
+        --  the definition of its *type*, not where it was *defined*.
+        map('<leader>D', fzf.lsp_typedefs, 'Type [D]efinition')
 
-			-- Lua Language Server
-			lspc.lua_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						runtime = {
-							version = "LuaJIT",
-						},
-						diagnostics = {
-							-- Ensure the language server recognises the `vim` global
-							globals = { "vim" },
-						},
-						workspace = {
-							-- Make the server aware of Nvim runtime files
-							library = vim.api.nvim_get_runtime_file("", true),
-							checkThirdParty = false,
-						},
-						telemetry = {
-							-- Don't send any telemetry info
-							enable = false,
-						},
-					},
-				},
-			})
+        -- Opens a popup that displays documentation about the word under your cursor
+        --  See `:help K` for why this keymap
+        map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
-			lspc.tsserver.setup({
-				capabilities = capabilities,
-			})
+        -- WARN: This is not Goto Definition, this is Goto Declaration.
+        --  For example, in C this would take you to the header
+        map('gD', fzf.lsp_declarations, '[G]oto [D]eclaration')
+      end
+    })
 
-			lspc.astro.setup({
-				capabilities = capabilities,
-			})
+    local capabilities = vim.tbl_deep_extend(
+      'force',
+      vim.lsp.protocol.make_client_capabilities(),
+      require('cmp_nvim_lsp').default_capabilities()
+    )
 
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-				callback = function(ev)
-					vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+    local servers = {
+      lua_ls = {
+        settings = {
+          Lua = {
+            runtime = { version = 'LuaJIT' },
+            workspace = {
+              checkThirdParty = false,
+              library = {
+                '${3rd}/luv/library',
+                unpack(vim.api.nvim_get_runtime_file('', true)),
+              },
+            },
+          },
+        },
+      },
+    }
 
-					local opts = { buffer = ev.buf }
+    require('mason').setup()
 
-					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-					vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
-					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-				end,
-			})
-		end,
-	},
-	{
-		"stevearc/conform.nvim",
-		config = function()
-			local conform = require("conform")
+    local ensure_installed = vim.tbl_keys(servers or {})
+    vim.list_extend(ensure_installed, {
+      'stylua', -- Used to lint Lua code
+    })
 
-			conform.setup({
-				formatters_by_ft = {
-					lua = { "stylua" },
-					astro = { "prettierd" },
-					javascript = { "prettierd" },
-					javascriptreact = { "prettierd" },
-					typescript = { "prettierd" },
-					typescriptreact = { "prettierd" },
-				},
-				format_on_save = {
-					timeout_ms = 500,
-					lsp_fallback = true,
-				},
-			})
-		end,
-	},
+    require('mason-lspconfig').setup({
+      handlers = {
+        function(server_name)
+          local server = servers[server_name] or {}
+          require('lspconfig')[server_name].setup({
+            cmd = server.cmd,
+            settings = server.settings,
+            filetypes = server.filetypes,
+            capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {}),
+          })
+        end,
+      },
+    })
+  end
 }

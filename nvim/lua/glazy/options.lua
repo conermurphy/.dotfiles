@@ -1,30 +1,47 @@
-vim.g.mapleader = " "
+-- Set <Space> as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-local options = {
-  clipboard = "unnamedplus", -- Use system clipboard
-  swapfile = false, -- Disables writing of swap files
-  ignorecase = true, -- Ignores letter casing in patterns
-  smartcase = true, -- Don't ignore case with capitals
-  splitbelow = true, -- New splits will always open below
-  splitright = true, -- New splits will always open to the right
-  termguicolors = true, -- Enables true colours
-  syntax = "on", -- Enable syntax highlighting
-  shiftwidth = 2, -- Size of an indent
-  tabstop = 2, -- The size of a tab in spaces
-  expandtab = true, -- Use spaces instead of tabs
-  number = true, -- Enable line numbers
-  relativenumber = true, -- Make line numbers relative
-  cursorline = true, -- Highlight line cursor is on
-  smartindent = true, -- Insert indents automatically
-  signcolumn = "yes", -- Always show the sign column
-  wrap = false, -- Disable line wrapping
-  completeopt = "menu,menuone,noselect", -- Methods of insert mode completion
+-- Enable relative line numbers
+vim.opt.number = true
+vim.wo.relativenumber = true
 
-  timeoutlen = 300,
-  updatetime = 200,
-}
+-- Enable mouse mode
+vim.opt.mouse = 'a'
 
-for k, v in pairs(options) do
-	vim.opt[k] = v
-end
+-- Mode is already displayed in status line
+vim.opt.showmode = false
+
+-- Sync system and Neovim clipboard
+vim.opt.clipboard = 'unnamedplus'
+
+-- Enable break indent
+vim.opt.breakindent = true
+
+-- Save undo history
+vim.opt.undofile = true
+
+-- Case-insensitive searching
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Enable signcolumn by default
+vim.opt.signcolumn = 'yes'
+
+-- Decrease update time(s)
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+-- New split configuration
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Preview substitutions live
+vim.opt.inccommand = 'split'
+
+-- Highlights the line the cursor is on
+vim.opt.cursorline = true
+
+-- Minimum number of lines to be kept above/below cursor
+vim.opt.scrolloff = 10
 

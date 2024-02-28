@@ -1,24 +1,12 @@
 return {
+  'tpope/vim-sleuth',
   {
-    "echasnovski/mini.pairs",
-    version = false,
-    config = function()
-      require("mini.pairs").setup()
+    'echasnovski/mini.nvim',
+    config = function ()
+      require('mini.ai').setup()
+      require('mini.surround').setup()
+      require('mini.statusline').setup()
     end
-  },
-  {
-    "echasnovski/mini.surround",
-    version = false,
-    config = function()
-      require("mini.surround").setup()
-    end
-  },
-  {
-    "echasnovski/mini.comment",
-    version = false,
-    config = function()
-      require("mini.comment").setup()
-    end
-  },
-  { "lukas-reineke/indent-blankline.nvim" },
+  }
 }
+
