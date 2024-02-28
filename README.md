@@ -29,8 +29,3 @@ Symlink: `ln -s ~/.dotfiles/nvim/ ~/.config/nvim/`
 brew install neovim ripgrep fd lazygit
 ```
 
-2. Install Packer packages
-
-```vimscript
-:PackerInstall
-```
