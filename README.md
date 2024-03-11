@@ -4,7 +4,7 @@ Clone this repository into `~/.dotfiles` and apply the correct symlinks.
 
 ## ZSH
 
-Symlink: `ln -s ~/.dotfiles/.zshrc ~/.zshrc`
+Symlink: `ln -s ~/.dotfiles/.zshrc ~/`
 
 ## Kitty
 
