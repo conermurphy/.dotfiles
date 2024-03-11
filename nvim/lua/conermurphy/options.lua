@@ -47,3 +47,4 @@ vim.opt.cursorline = true
 
 -- Minimum number of lines to be kept above/below cursor
 vim.opt.scrolloff = 10
+

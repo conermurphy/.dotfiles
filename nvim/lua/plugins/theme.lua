@@ -1,9 +1,10 @@
 return {
-  'lalitmee/cobalt2.nvim',
+  'folke/tokyonight.nvim',
   lazy = false,
   priority = 1000,
-  dependencies = { 'tjdevries/colorbuddy.nvim' },
-  init = function()
-    require('colorbuddy').colorscheme('cobalt2')
+  opts = {},
+  config = function()
+    -- Set the colorscheme
+    vim.cmd('colorscheme tokyonight-storm')
   end,
 }
