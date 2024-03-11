@@ -1,4 +1,3 @@
-require('glazy.options')
-require('glazy.keymaps')
-require('glazy.plugins')
-
+require('conermurphy.options')
+require('conermurphy.keymaps')
+require('conermurphy.plugins')

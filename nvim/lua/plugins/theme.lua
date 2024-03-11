@@ -1,8 +1,9 @@
 return {
-  'rebelot/kanagawa.nvim',
+  'lalitmee/cobalt2.nvim',
   lazy = false,
   priority = 1000,
-  config = function()
-    vim.cmd([[colorscheme kanagawa]])
-  end
+  dependencies = { 'tjdevries/colorbuddy.nvim' },
+  init = function()
+    require('colorbuddy').colorscheme('cobalt2')
+  end,
 }

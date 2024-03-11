@@ -9,6 +9,9 @@ vim.wo.relativenumber = true
 -- Enable mouse mode
 vim.opt.mouse = 'a'
 
+--
+vim.opt.colorcolumn = '80'
+
 -- Mode is already displayed in status line
 vim.opt.showmode = false
 
@@ -44,4 +47,3 @@ vim.opt.cursorline = true
 
 -- Minimum number of lines to be kept above/below cursor
 vim.opt.scrolloff = 10
-
