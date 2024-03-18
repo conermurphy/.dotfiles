@@ -16,3 +16,10 @@ Symlink: `ln -s ~/.dotfiles/nvim/ ~/.config/`
 brew install neovim ripgrep lazygit
 ```
 
+2. Install the `tsserver` language server
+
+Inside `nvim` run the below command.
+
+```
+:LspInstall tsserver
+```
