@@ -18,8 +18,4 @@ brew install neovim ripgrep lazygit
 
 2. Install the `tsserver` language server
 
-Inside `nvim` run the below command.
-
-```
-:LspInstall tsserver
-```
+To install the `tsserver` use the `:Mason` command inside `nvim`
