@@ -2,45 +2,32 @@ return {
   'nvim-neotest/neotest',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'antoinemadec/FixCursorHold.nvim',
     'nvim-treesitter/nvim-treesitter',
+    'antoinemadec/FixCursorHold.nvim',
     'nvim-neotest/neotest-jest',
+    'nvim-neotest/nvim-nio',
   },
   keys = {
     {
-      '<leader>tt',
-      function()
-        require('neotest').run.run(vim.fn.expand('%'))
-      end,
-      desc = 'Run File',
-    },
-    {
-      '<leader>ta',
-      function()
-        require('neotest').run.run(vim.loop.cwd())
-      end,
-      desc = 'Run All Test Files',
-    },
-    {
-      '<leader>tr',
+      '<leader>tn',
       function()
         require('neotest').run.run()
       end,
-      desc = 'Run Nearest',
+      desc = 'Test Nearest',
     },
     {
-      '<leader>ts',
+      '<leader>tf',
       function()
-        require('neotest').summary.toggle()
+        require('neotest').run.run(vim.fn.expand('%'))
       end,
-      desc = 'Toggle Summary',
+      desc = 'Test File',
     },
     {
-      '<leader>to',
+      '<leader>tl',
       function()
-        require('neotest').output.open({ enter = false, auto_close = true })
+        require('neotest').run.run_last()
       end,
-      desc = 'Show Output',
+      desc = 'Test Last',
     },
     {
       '<leader>tO',
@@ -50,7 +37,35 @@ return {
       desc = 'Toggle Output Panel',
     },
     {
-      '<leader>tS',
+      '<leader>ts',
+      function()
+        require('neotest').summary.toggle()
+      end,
+      desc = 'Show Summary',
+    },
+    {
+      '<leader>to',
+      function()
+        require('neotest').output.open({ enter = true })
+      end,
+      desc = 'Show Output',
+    },
+    {
+      '[r',
+      function()
+        require('neotest').jump.prev({ status = 'failed' })
+      end,
+      desc = 'Goto Prev Failed',
+    },
+    {
+      ']r',
+      function()
+        require('neotest').jump.next({ status = 'failed' })
+      end,
+      desc = 'Goto Next Failed',
+    },
+    {
+      '<leader>R',
       function()
         require('neotest').run.stop()
       end,
@@ -62,7 +77,7 @@ return {
       adapters = {
         require('neotest-jest')({
           jestConfigFile = 'jest.config.js',
-          -- env = { CI = true },
+          env = { CI = true },
         }),
       },
       quickfix = {

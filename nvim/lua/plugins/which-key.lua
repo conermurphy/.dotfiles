@@ -7,5 +7,9 @@ return {
     wk.register({
       f = { name = 'Find' },
     }, { prefix = '<leader>' })
-  end
+
+    wk.register({
+      t = { name = 'Test' },
+    }, { prefix = '<leader>' })
+  end,
 }
