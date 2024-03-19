@@ -4,9 +4,18 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
     'antoinemadec/FixCursorHold.nvim',
-    'nvim-neotest/neotest-jest',
+    -- 'nvim-neotest/neotest-jest',
+    {
+      'nvim-neotest/neotest-jest',
+      dir = '~/Documents/000-projects/019-neotest-jest',
+      name = 'neotest-jest',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+      },
+    },
     'nvim-neotest/nvim-nio',
   },
+  lazy = false,
   keys = {
     {
       '<leader>tn',
@@ -51,14 +60,14 @@ return {
       desc = 'Show Output',
     },
     {
-      '[r',
+      '[t',
       function()
         require('neotest').jump.prev({ status = 'failed' })
       end,
       desc = 'Goto Prev Failed',
     },
     {
-      ']r',
+      ']t',
       function()
         require('neotest').jump.next({ status = 'failed' })
       end,
@@ -71,13 +80,21 @@ return {
       end,
       desc = 'Stop',
     },
+    {
+      '<leader>tp',
+      function()
+        require('neotest').run.run(vim.fn.getcwd())
+      end,
+      desc = 'Test Project',
+    },
   },
   config = function()
-    require('neotest').setup({
+    local neotest = require('neotest')
+
+    neotest.setup({
       adapters = {
         require('neotest-jest')({
           jestConfigFile = 'jest.config.js',
-          env = { CI = true },
         }),
       },
       quickfix = {
@@ -91,6 +108,10 @@ return {
         virtual_text = false,
         signs = true,
       },
+    })
+
+    neotest.setup_project('~/Documents/000-projects/000-salable/', {
+      discovery = { enabled = false },
     })
   end,
 }
