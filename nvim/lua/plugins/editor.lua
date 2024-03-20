@@ -2,12 +2,27 @@ return {
   'tpope/vim-sleuth',
   {
     'echasnovski/mini.nvim',
+    dependencies = {
+      {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        opts = {
+          enable_autocmd = false,
+        },
+      },
+    },
     config = function()
       require('mini.ai').setup()
       require('mini.surround').setup()
       require('mini.pairs').setup()
       require('mini.statusline').setup()
-      require('mini.comment').setup()
+      require('mini.comment').setup({
+        options = {
+          custom_commentstring = function()
+            return require('ts_context_commentstring.internal').calculate_commentstring()
+              or vim.bo.commentstring
+          end,
+        },
+      })
     end,
   },
   { -- Makes the colorcolumn a character so it looks prettier
