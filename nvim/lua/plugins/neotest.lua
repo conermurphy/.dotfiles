@@ -4,15 +4,16 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
     'antoinemadec/FixCursorHold.nvim',
+    'conermurphy/neotest-jest',
     -- 'nvim-neotest/neotest-jest',
-    {
-      'nvim-neotest/neotest-jest',
-      dir = '~/Documents/000-projects/019-neotest-jest',
-      name = 'neotest-jest',
-      dependencies = {
-        'nvim-lua/plenary.nvim',
-      },
-    },
+    -- {
+    --   'nvim-neotest/neotest-jest',
+    --   dir = '~/Documents/000-projects/019-neotest-jest',
+    --   name = 'neotest-jest',
+    --   dependencies = {
+    --     'nvim-lua/plenary.nvim',
+    --   },
+    -- },
     'nvim-neotest/nvim-nio',
   },
   lazy = false,
