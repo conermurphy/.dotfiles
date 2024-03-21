@@ -11,5 +11,9 @@ return {
     wk.register({
       t = { name = 'Test' },
     }, { prefix = '<leader>' })
+
+    wk.register({
+      g = { name = 'Git' },
+    }, { prefix = '<leader>' })
   end,
 }
