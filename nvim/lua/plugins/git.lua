@@ -11,7 +11,7 @@ return {
       {
         '<leader>gg',
         function()
-          require('neogit').open({ kind = 'replace' })
+          require('neogit').open({ kind = 'vsplit' })
         end,
         desc = 'Manage',
       },
