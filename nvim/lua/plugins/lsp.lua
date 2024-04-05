@@ -2,8 +2,44 @@ return {
   {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
+    opts = {
+      settings = {
+        expose_as_code_action = 'all',
+      },
+    },
     ft = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
+    config = function()
+      require('typescript-tools').setup({
+        on_attach = function(event)
+          local map = function(keys, func, desc)
+            vim.keymap.set(
+              'n',
+              keys,
+              func,
+              { buffer = event.buf, desc = 'LSP: ' .. desc }
+            )
+          end
+
+          map(
+            '<leader>ha',
+            ':TSToolsAddMissingImports<CR>',
+            'Add Missing Imports'
+          )
+
+          map(
+            '<leader>hs',
+            ':TSToolsRemoveUnused<CR>',
+            'Remove Unused Statements'
+          )
+
+          map(
+            '<leader>hi',
+            ':TSToolsRemoveUnusedImports<CR>',
+            'Remove Unused Imports'
+          )
+        end,
+      })
+    end,
   },
   {
     'neovim/nvim-lspconfig',

@@ -6,13 +6,8 @@ return {
 
     wk.register({
       f = { name = 'Find' },
-    }, { prefix = '<leader>' })
-
-    wk.register({
       t = { name = 'Test' },
-    }, { prefix = '<leader>' })
-
-    wk.register({
+      h = { name = 'TS Tools' },
       g = { name = 'Git' },
     }, { prefix = '<leader>' })
   end,
