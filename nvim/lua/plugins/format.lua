@@ -9,6 +9,7 @@ return {
       lua = { 'stylua' },
       typescript = { 'prettier' },
       typescriptreact = { 'prettier' },
+      javascript = { 'prettier' },
     },
   },
 }
