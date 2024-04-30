@@ -52,3 +52,7 @@ vim.keymap.set(
   '<C-w><C-k>',
   { desc = 'Move focus to the upper window' }
 )
+
+-- Buffer/File Controls
+vim.keymap.set('n', '<C-[>', '<cmd>:bprevious<CR>')
+vim.keymap.set('n', '<C-]>', '<cmd>:bnext<CR>')
