@@ -21,19 +21,19 @@ return {
           end
 
           map(
-            '<leader>ha',
+            '<leader>la',
             ':TSToolsAddMissingImports<CR>',
             'Add Missing Imports'
           )
 
           map(
-            '<leader>hs',
+            '<leader>ls',
             ':TSToolsRemoveUnused<CR>',
             'Remove Unused Statements'
           )
 
           map(
-            '<leader>hi',
+            '<leader>li',
             ':TSToolsRemoveUnusedImports<CR>',
             'Remove Unused Imports'
           )

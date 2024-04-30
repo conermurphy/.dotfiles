@@ -46,6 +46,17 @@ return {
       })
     end,
   },
+
+  {
+    'windwp/nvim-ts-autotag',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('nvim-treesitter.configs').setup({})
+    end,
+    lazy = true,
+    event = 'VeryLazy',
+  },
+
   { -- Makes the colorcolumn a character so it looks prettier
     'lukas-reineke/virt-column.nvim',
     opts = {},
