@@ -17,16 +17,16 @@ return {
       require('mini.move').setup({
         mappings = {
           -- Move visual selection in Visual mode.
-          left = '<C-S-h>',
-          right = '<C-S-l>',
-          down = '<C-S-j>',
-          up = '<C-S-k>',
+          left = '<A-LEFT>',
+          right = '<A-RIGHT>',
+          down = '<A-DOWN>',
+          up = '<A-UP>',
 
           -- Move current line in Normal mode
-          line_left = '<C-S-h>',
-          line_right = '<C-S-l>',
-          line_down = '<C-S-j>',
-          line_up = '<C-S-k>',
+          line_left = '<A-LEFT>',
+          line_right = '<A-RIGHT>',
+          line_down = '<A-DOWN>',
+          line_up = '<A-UP>',
         },
 
         -- Options which control moving behavior
