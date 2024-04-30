@@ -5,6 +5,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     'antoinemadec/FixCursorHold.nvim',
     'nvim-neotest/neotest-jest',
+    'marilari88/neotest-vitest',
     'nvim-neotest/nvim-nio',
   },
   lazy = false,
@@ -88,6 +89,7 @@ return {
         require('neotest-jest')({
           jestConfigFile = 'jest.config.js',
         }),
+        require('neotest-vitest')({}),
       },
       quickfix = {
         enabled = false,
