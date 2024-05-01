@@ -9,7 +9,7 @@ return {
       t = { name = 'Test' },
       l = { name = 'TS Tools' },
       g = { name = 'Git' },
-      y = { name = 'Yanky' },
+      p = { name = 'Yanky' },
 
       -- NOTE: This is done to stop the Harpoon quick-jump binds from cluttering
       -- up the WhichKey popup.

@@ -1,37 +1,100 @@
 return {
-  'gbprod/yanky.nvim',
-  enabled = true,
-  keys = {
-    {
-      '<leader>yp',
-      '<Plug>(YankyPreviousEntry)',
-      mode = { 'n', 'x' },
-      desc = 'Previous Entry',
+  -- better yank/paste
+  {
+    'gbprod/yanky.nvim',
+    dependencies = { 'kkharji/sqlite.lua' },
+    opts = {
+      highlight = { timer = 250 },
+      ring = { storage = 'sqlite' },
     },
-    {
-      '<leader>yn',
-      '<Plug>(YankyNextEntry)',
-      mode = { 'n', 'x' },
-      desc = 'Next Entry',
-    },
-    {
-      'p',
-      '<Plug>(YankyPutAfter)',
-      mode = { 'n', 'x' },
-      desc = 'Paste on line below',
-    },
-    {
-      'P',
-      '<Plug>(YankyPutBefore)',
-      mode = { 'n', 'x' },
-      desc = 'Paste on line above',
-    },
-  },
-  opts = {
-    highlight = {
-      on_put = true,
-      on_yank = true,
-      timer = 100,
+    keys = {
+        -- stylua: ignore
+      { "<leader>ph", '<CMD>:YankyRingHistory<CR>', desc = "Open Yank History" },
+      { 'y', '<Plug>(YankyYank)', mode = { 'n', 'x' }, desc = 'Yank Text' },
+      {
+        'p',
+        '<Plug>(YankyPutAfter)',
+        mode = { 'n', 'x' },
+        desc = 'Put Yanked Text After Cursor',
+      },
+      {
+        'P',
+        '<Plug>(YankyPutBefore)',
+        mode = { 'n', 'x' },
+        desc = 'Put Yanked Text Before Cursor',
+      },
+      {
+        'gp',
+        '<Plug>(YankyGPutAfter)',
+        mode = { 'n', 'x' },
+        desc = 'Put Yanked Text After Selection',
+      },
+      {
+        'gP',
+        '<Plug>(YankyGPutBefore)',
+        mode = { 'n', 'x' },
+        desc = 'Put Yanked Text Before Selection',
+      },
+      {
+        '<leader>pn',
+        '<Plug>(YankyCycleForward)',
+        desc = 'Cycle Forward Through Yank History',
+      },
+      {
+        '<leader>pp',
+        '<Plug>(YankyCycleBackward)',
+        desc = 'Cycle Backward Through Yank History',
+      },
+      {
+        ']p',
+        '<Plug>(YankyPutIndentAfterLinewise)',
+        desc = 'Put Indented After Cursor (Linewise)',
+      },
+      {
+        '[p',
+        '<Plug>(YankyPutIndentBeforeLinewise)',
+        desc = 'Put Indented Before Cursor (Linewise)',
+      },
+      {
+        ']P',
+        '<Plug>(YankyPutIndentAfterLinewise)',
+        desc = 'Put Indented After Cursor (Linewise)',
+      },
+      {
+        '[P',
+        '<Plug>(YankyPutIndentBeforeLinewise)',
+        desc = 'Put Indented Before Cursor (Linewise)',
+      },
+      {
+        '>p',
+        '<Plug>(YankyPutIndentAfterShiftRight)',
+        desc = 'Put and Indent Right',
+      },
+      {
+        '<p',
+        '<Plug>(YankyPutIndentAfterShiftLeft)',
+        desc = 'Put and Indent Left',
+      },
+      {
+        '>P',
+        '<Plug>(YankyPutIndentBeforeShiftRight)',
+        desc = 'Put Before and Indent Right',
+      },
+      {
+        '<P',
+        '<Plug>(YankyPutIndentBeforeShiftLeft)',
+        desc = 'Put Before and Indent Left',
+      },
+      {
+        '=p',
+        '<Plug>(YankyPutAfterFilter)',
+        desc = 'Put After Applying a Filter',
+      },
+      {
+        '=P',
+        '<Plug>(YankyPutBeforeFilter)',
+        desc = 'Put Before Applying a Filter',
+      },
     },
   },
 }
