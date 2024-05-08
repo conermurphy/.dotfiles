@@ -10,6 +10,8 @@ return {
       typescript = { 'prettier' },
       typescriptreact = { 'prettier' },
       javascript = { 'prettier' },
+      astro = { 'prettier' },
+      html = { 'prettier' },
     },
   },
 }
