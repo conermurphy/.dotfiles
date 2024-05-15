@@ -32,6 +32,13 @@ return {
       desc = 'Test Last',
     },
     {
+      '<leader>tF',
+      function()
+        require('neotest').run.run({ status = 'failed' })
+      end,
+      desc = 'Test Failed',
+    },
+    {
       '<leader>tO',
       function()
         require('neotest').output_panel.toggle()
