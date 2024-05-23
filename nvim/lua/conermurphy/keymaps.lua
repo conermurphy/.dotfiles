@@ -56,3 +56,11 @@ vim.keymap.set(
 -- Buffer/File Controls
 vim.keymap.set('n', '<C-[>', '<cmd>:bprevious<CR>')
 vim.keymap.set('n', '<C-]>', '<cmd>:bnext<CR>')
+
+-- Spelling Controls
+vim.keymap.set(
+  'n',
+  '<leader>ss',
+  '<cmd>:set invspell spelloptions=camel spelllang=en_gb spellcapcheck=<CR>',
+  { desc = 'Toggle spelling' }
+)

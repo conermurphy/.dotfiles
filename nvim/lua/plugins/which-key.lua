@@ -10,6 +10,7 @@ return {
       l = { name = 'TS Tools' },
       g = { name = 'Git' },
       p = { name = 'Yanky' },
+      s = { name = 'Spelling' },
 
       -- NOTE: This is done to stop the Harpoon quick-jump binds from cluttering
       -- up the WhichKey popup.
