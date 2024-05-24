@@ -1,3 +1,9 @@
+-- Enables spell checking on each file when opening them
+vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufNewFile', 'BufEnter' }, {
+  pattern = '*',
+  command = 'set spell spelloptions=camel spelllang=en_gb spellcapcheck=',
+})
+
 return {
   'tpope/vim-sleuth',
   {

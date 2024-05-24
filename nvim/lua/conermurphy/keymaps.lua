@@ -61,6 +61,13 @@ vim.keymap.set('n', '<C-]>', '<cmd>:bnext<CR>')
 vim.keymap.set(
   'n',
   '<leader>ss',
-  '<cmd>:set invspell spelloptions=camel spelllang=en_gb spellcapcheck=<CR>',
-  { desc = 'Toggle spelling' }
+  '<cmd>:set spell spelloptions=camel spelllang=en_gb spellcapcheck=<CR>',
+  { desc = 'Enable Spell Checking' }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>sd',
+  '<cmd>:set nospell<CR>',
+  { desc = 'Disable Spell Checking' }
 )
