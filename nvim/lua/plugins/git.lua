@@ -11,7 +11,7 @@ return {
       {
         '<leader>gg',
         function()
-          require('neogit').open({ kind = 'floating' })
+          require('neogit').open({ kind = 'auto' })
         end,
         desc = 'Manage',
       },
