@@ -32,6 +32,8 @@ return {
             'Remove Unused Statements'
           )
 
+          map('<leader>lo', ':TSToolsOrganizeImports<CR>', 'Organise Imports')
+
           map(
             '<leader>li',
             ':TSToolsRemoveUnusedImports<CR>',

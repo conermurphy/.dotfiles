@@ -36,5 +36,19 @@ return {
       end,
       desc = 'Grep',
     },
+    {
+      '<leader>fr',
+      function()
+        require('fzf-lua').live_grep_resume()
+      end,
+      desc = 'Previous Grep',
+    },
+    {
+      '<leader>fw',
+      function()
+        require('fzf-lua').grep_cword()
+      end,
+      desc = 'Grep Word',
+    },
   },
 }
