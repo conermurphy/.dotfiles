@@ -20,6 +20,8 @@ return {
             )
           end
 
+          map('<leader>lr', ':LspRestart<CR>', 'Restart LSP server')
+
           map(
             '<leader>la',
             ':TSToolsAddMissingImports<CR>',
