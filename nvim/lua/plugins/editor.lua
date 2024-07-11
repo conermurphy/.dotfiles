@@ -4,6 +4,9 @@ vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufNewFile', 'BufEnter' }, {
   command = 'set spell spelloptions=camel spelllang=en_gb spellcapcheck=',
 })
 
+vim.cmd('highlight SpellBad gui=bold,underdotted guisp=Orange')
+vim.cmd('highlight SpellLocal gui=bold,underdotted guisp=Cyan')
+
 return {
   'tpope/vim-sleuth',
   {
