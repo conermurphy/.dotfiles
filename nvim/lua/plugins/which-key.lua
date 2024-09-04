@@ -4,21 +4,18 @@ return {
   config = function()
     local wk = require('which-key')
 
-    wk.register({
-      f = { name = 'Find' },
-      t = { name = 'Test' },
-      l = { name = 'TS Tools' },
-      g = { name = 'Git' },
-      p = { name = 'Yanky' },
-      s = { name = 'Spelling' },
-
-      -- NOTE: This is done to stop the Harpoon quick-jump binds from cluttering
-      -- up the WhichKey popup.
-      ['1'] = 'which_key_ignore',
-      ['2'] = 'which_key_ignore',
-      ['3'] = 'which_key_ignore',
-      ['4'] = 'which_key_ignore',
-      ['5'] = 'which_key_ignore',
-    }, { prefix = '<leader>' })
+    wk.add({
+      { '<leader>1', hidden = true },
+      { '<leader>2', hidden = true },
+      { '<leader>3', hidden = true },
+      { '<leader>4', hidden = true },
+      { '<leader>5', hidden = true },
+      { '<leader>f', group = 'Find' },
+      { '<leader>g', group = 'Git' },
+      { '<leader>l', group = 'TS Tools' },
+      { '<leader>p', group = 'Yanky' },
+      { '<leader>s', group = 'Spelling' },
+      { '<leader>t', group = 'Test' },
+    })
   end,
 }
