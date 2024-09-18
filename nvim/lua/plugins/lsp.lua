@@ -128,7 +128,7 @@ return {
           function(server_name)
             -- NOTE: We don't want mason-lspconfig to autosetup tsserver for us
             -- this is because we use pmizio/typescript-tools.nvim instead
-            if server_name == 'tsserver' then
+            if server_name == 'ts_ls' then
               return
             end
 
