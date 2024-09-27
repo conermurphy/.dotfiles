@@ -5,7 +5,13 @@ return {
     { 'junegunn/fzf', build = './install --bin' },
   },
   config = function()
-    require('fzf-lua').setup()
+    require('fzf-lua').setup({
+      keymap = {
+        fzf = {
+          ['ctrl-q'] = 'select-all+accept',
+        },
+      },
+    })
   end,
   keys = {
     {
