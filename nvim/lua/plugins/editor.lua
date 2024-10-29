@@ -32,17 +32,25 @@ return {
       require('mini.pairs').setup()
       require('mini.move').setup({
         mappings = {
+          -- NOTE: The characters shown are a workaround for MacOS.
+          -- See this: https://stackoverflow.com/a/15399297
+
+          -- ˙ = <A-h>
+          -- ¬ = <A-l>
+          -- ∆ = <A-j>
+          -- ˚ = <A-˚>
+
           -- Move visual selection in Visual mode.
-          left = '<A-LEFT>',
-          right = '<A-RIGHT>',
-          down = '<A-DOWN>',
-          up = '<A-UP>',
+          left = '˙',
+          right = '¬',
+          down = '∆',
+          up = '˚',
 
           -- Move current line in Normal mode
-          line_left = '<A-LEFT>',
-          line_right = '<A-RIGHT>',
-          line_down = '<A-DOWN>',
-          line_up = '<A-UP>',
+          line_left = '˙',
+          line_right = '¬',
+          line_down = '∆',
+          line_up = '˚',
         },
 
         -- Options which control moving behavior
@@ -73,7 +81,8 @@ return {
     event = 'VeryLazy',
   },
 
-  { -- Makes the colorcolumn a character so it looks prettier
+  -- Makes the colorcolumn a character so it looks prettier
+  {
     'lukas-reineke/virt-column.nvim',
     opts = {},
   },
@@ -81,19 +90,14 @@ return {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
-      search = {
-        command = 'rg',
-        args = {
-          '--color=never',
-          '--no-heading',
-          '--with-filename',
-          '--line-number',
-          '--column',
-        },
-        -- regex that will be used to match keywords.
-        -- don't replace the (KEYWORDS) placeholder
-        pattern = [[\b@?(KEYWORDS):]], -- ripgrep regex
-        -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+      keywords = {
+        FIX = { alt = { 'fix', 'Fix' } },
+        TODO = { alt = { 'todo', 'Todo' } },
+        HACK = { alt = { 'hack', 'Hack' } },
+        WARN = { alt = { 'warn', 'Warn' } },
+        PERF = { alt = { 'perf', 'Perf' } },
+        NOTE = { alt = { 'note', 'Note' } },
+        TEST = { alt = { 'test', 'Test' } },
       },
     },
   },

@@ -27,6 +27,13 @@ vim.keymap.set(
   { desc = 'Open diagnostic [Q]uickfix list' }
 )
 
+-- Easily move between buffers
+-- NOTE: The characters shown are a workaround for MacOS.
+-- See this: https://stackoverflow.com/a/15399297
+-- “ = <A-[> , ‘ = <A-]>
+vim.keymap.set('n', '“', '<cmd>bprev<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '‘', '<cmd>bnext<CR>', { desc = 'Next buffer' })
+
 -- Easily move between windows
 vim.keymap.set(
   'n',
@@ -67,3 +74,9 @@ vim.keymap.set(
   '<cmd>:set nospell<CR>',
   { desc = 'Disable Spell Checking' }
 )
+
+-- NOTE: map arrow keys to Nop so they don't work in normal mode
+vim.keymap.set('n', '<Up>', '<Nop>')
+vim.keymap.set('n', '<Down>', '<Nop>')
+vim.keymap.set('n', '<Left>', '<Nop>')
+vim.keymap.set('n', '<Right>', '<Nop>')

@@ -36,12 +36,12 @@ return {
         desc = 'Put Yanked Text Before Selection',
       },
       {
-        '<leader>pn',
+        '<C-n>',
         '<Plug>(YankyCycleForward)',
         desc = 'Cycle Forward Through Yank History',
       },
       {
-        '<leader>pp',
+        '<C-p>',
         '<Plug>(YankyCycleBackward)',
         desc = 'Cycle Backward Through Yank History',
       },
