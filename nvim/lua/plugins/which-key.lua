@@ -13,7 +13,6 @@ return {
       { '<leader>f', group = 'Find' },
       { '<leader>g', group = 'Git' },
       { '<leader>l', group = 'TS Tools' },
-      { '<leader>p', group = 'Yanky' },
       { '<leader>s', group = 'Spelling' },
       { '<leader>t', group = 'Test' },
     })
