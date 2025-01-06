@@ -2,9 +2,9 @@
 
 Clone this repository into `~/.dotfiles` and apply the correct symlinks.
 
-## Kitty
+## Ghostty
 
-Symlink: `ln -s ~/.dotfiles/kitty ~/.config/`
+Symlink: `ln -s ~/.dotfiles/ghostty/ ~/.config/`
 
 ## Neovim
 

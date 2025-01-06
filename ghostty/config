@@ -1,0 +1,9 @@
+## Appearance
+theme = tokyonight_moon
+mouse-hide-while-typing = true
+
+## Fonts
+font-family = JetBrains Mono
+font-size = 14
+font-thicken = true
+adjust-cell-height = 60%
