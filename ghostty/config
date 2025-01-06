@@ -4,6 +4,6 @@ mouse-hide-while-typing = true
 
 ## Fonts
 font-family = JetBrains Mono
-font-size = 14
-font-thicken = true
+font-size = 13
+font-thicken = false
 adjust-cell-height = 60%
