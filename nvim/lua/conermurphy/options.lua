@@ -48,7 +48,9 @@ vim.opt.cursorline = true
 -- Minimum number of lines to be kept above/below cursor
 vim.opt.scrolloff = 10
 
+-- Set indent width
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+
 vim.opt.expandtab = true
 vim.bo.softtabstop = 2
