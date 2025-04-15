@@ -28,11 +28,8 @@ vim.keymap.set(
 )
 
 -- Easily move between buffers
--- NOTE: The characters shown are a workaround for MacOS.
--- See this: https://stackoverflow.com/a/15399297
--- “ = <A-[> , ‘ = <A-]>
-vim.keymap.set('n', '“', '<cmd>bprev<CR>', { desc = 'Previous buffer' })
-vim.keymap.set('n', '‘', '<cmd>bnext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<A-[>', '<cmd>bprev<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<A-]', '<cmd>bnext<CR>', { desc = 'Next buffer' })
 
 -- Easily move between windows
 vim.keymap.set(

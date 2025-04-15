@@ -7,3 +7,6 @@ font-family = JetBrains Mono
 font-size = 13
 font-thicken = false
 adjust-cell-height = 60%
+
+## Allow 'opt' to work as 'alt' for keybinds
+macos-option-as-alt = true

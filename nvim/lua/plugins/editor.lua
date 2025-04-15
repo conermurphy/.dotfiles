@@ -32,25 +32,17 @@ return {
       require('mini.pairs').setup()
       require('mini.move').setup({
         mappings = {
-          -- NOTE: The characters shown are a workaround for MacOS.
-          -- See this: https://stackoverflow.com/a/15399297
-
-          -- ˙ = <A-h>
-          -- ¬ = <A-l>
-          -- ∆ = <A-j>
-          -- ˚ = <A-˚>
-
           -- Move visual selection in Visual mode.
-          left = '˙',
-          right = '¬',
-          down = '∆',
-          up = '˚',
+          left = '<A-h>',
+          right = '<A-l>',
+          down = '<A-j>',
+          up = '<A-k>',
 
           -- Move current line in Normal mode
-          line_left = '˙',
-          line_right = '¬',
-          line_down = '∆',
-          line_up = '˚',
+          line_left = '<A-h>',
+          line_right = '<A-l>',
+          line_down = '<A-j>',
+          line_up = '<A-k>',
         },
 
         -- Options which control moving behavior

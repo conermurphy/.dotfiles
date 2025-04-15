@@ -5,10 +5,18 @@ return {
     { 'junegunn/fzf', build = './install --bin' },
   },
   config = function()
+    local actions = require('fzf-lua').actions
+
     require('fzf-lua').setup({
       keymap = {
         fzf = {
           ['ctrl-q'] = 'select-all+accept',
+        },
+      },
+      actions = {
+        files = {
+          true,
+          ['ctrl-y'] = actions.file_edit_or_qf,
         },
       },
     })
