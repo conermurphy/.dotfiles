@@ -19,3 +19,21 @@ brew install neovim ripgrep lazygit
 2. Install the `tsserver` language server
 
 To install the `tsserver` use the `:Mason` command inside `nvim`
+
+## Tmux
+
+Symlink: `ln -s ~/.dotfiles/.tmux.conf ~/`
+
+1. Install dependencies
+
+```sh
+brew install tmux
+```
+
+2. Install the plugins
+
+- [TPM](https://github.com/tmux-plugins/tpm)
+
+
+
+
