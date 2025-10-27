@@ -1,51 +1,5 @@
 return {
   {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {
-      settings = {
-        expose_as_code_action = 'all',
-      },
-    },
-    ft = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
-    config = function()
-      require('typescript-tools').setup({
-        on_attach = function(event)
-          local map = function(keys, func, desc)
-            vim.keymap.set(
-              'n',
-              keys,
-              func,
-              { buffer = event.buf, desc = 'LSP: ' .. desc }
-            )
-          end
-
-          map('<leader>lr', ':LspRestart<CR>', 'Restart LSP server')
-
-          map(
-            '<leader>la',
-            ':TSToolsAddMissingImports<CR>',
-            'Add Missing Imports'
-          )
-
-          map(
-            '<leader>ls',
-            ':TSToolsRemoveUnused<CR>',
-            'Remove Unused Statements'
-          )
-
-          map('<leader>lo', ':TSToolsOrganizeImports<CR>', 'Organise Imports')
-
-          map(
-            '<leader>li',
-            ':TSToolsRemoveUnusedImports<CR>',
-            'Remove Unused Imports'
-          )
-        end,
-      })
-    end,
-  },
-  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'williamboman/mason.nvim',
@@ -65,6 +19,10 @@ return {
               { buffer = event.buf, desc = 'LSP: ' .. desc }
             )
           end
+
+          map('<leader>lr', ':LspRestart<CR>', 'Restart LSP server')
+
+          map('<leader>lo', ':LspTypescriptSourceAction<CR>', 'TS Options')
 
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
@@ -120,6 +78,9 @@ return {
 
         -- TailwindCSS
         tailwindcss = {},
+
+        -- TypeScript
+        ts_ls = {},
       }
 
       require('mason').setup()
@@ -131,12 +92,6 @@ return {
         automatic_installation = false,
         handlers = {
           function(server_name)
-            -- NOTE: We don't want mason-lspconfig to autosetup tsserver for us
-            -- this is because we use pmizio/typescript-tools.nvim instead
-            if server_name == 'ts_ls' then
-              return
-            end
-
             local server = servers[server_name] or {}
             require('lspconfig')[server_name].setup({
               cmd = server.cmd,
